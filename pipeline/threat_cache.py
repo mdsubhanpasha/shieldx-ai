@@ -1,8 +1,10 @@
 import time
 from typing import Dict, Any
+
 class LocalThreatCache:
     def __init__(self):
         self.blacklist_vpas = {'scammer@okaxis', 'fakecbi@ybl', 'digitalarrest@paytm'}
+
     def verify_vpa(self, vpa: str, amount: float, mcc: str) -> Dict[str, Any]:
         vpa_clean = vpa.lower().strip()
         if vpa_clean in self.blacklist_vpas:

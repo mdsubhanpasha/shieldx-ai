@@ -1,8 +1,10 @@
 import time
 from typing import Dict, Any
+
 class DualPathEngine:
     def __init__(self):
         pass
+
     def fast_classify(self, cleaned_text: str) -> Dict[str, Any]:
         start = time.perf_counter()
         scam_keywords = ['cbi', 'arrest', 'freeze', 'transfer', 'supremecourt', 'customs', 'rbi', 'ayyi potundi', 'cheyi']
@@ -15,6 +17,7 @@ class DualPathEngine:
             'inference_time_ms': latency_ms,
             'threat_type': 'DIGITAL_ARREST_EXTORTION' if is_threat else 'CLEAN'
         }
+
     def generate_xai_rationale(self, threat_type: str, text: str) -> str:
         if threat_type == 'DIGITAL_ARREST_EXTORTION':
             return f'Fast Attention Attribution: High-urgency authority impersonation and threat detected in text: {text[:35]}...'

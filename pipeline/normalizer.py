@@ -1,4 +1,5 @@
 import re
+
 def normalize_code_mixed_text(text: str) -> str:
     if not text:
         return ''
